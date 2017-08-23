@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/ico" href="/vendor/images/music_heart.ico" sizes="32x32">
+<link rel="stylesheet" href="/vendor/css/letter.css" type="text/css">
+<script type="text/javascript" src="/assets/jquery.min.js"></script>
+<title>这是电脑端页面</title>
+</head>
+<body>
+这个家伙很懒 没有写电脑端 只有手机端 大爷要不要掏出你的大手机使劲的扫一扫
+<br/>
+<img alt="..." src="/vendor/images/qr_code.png" />
+<div class="foot">
+<i class="fa fa-circle"></i>
+<i class="fa fa-tree"></i>
+<i class="fa fa-heart"></i>
+</div>
+<script type="text/javascript">
+(function(){  
+    var user = navigator.userAgent;  
+    var Agents = ["Android","Linux","iPhone"];  
+    var flag = false;  
+    for (var i = 0;i<Agents.length;i++) {  
+        if (user.indexOf(Agents[i]) > 0){  
+            flag = true;  
+        }  
+    }  
+    if(flag){
+    	window.location="/mobile";
+    }
+})();  
+</script>
+</body>
+</html>

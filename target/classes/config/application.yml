@@ -1,0 +1,42 @@
+server:
+  port: 443
+  ssl: 
+    enabled: true
+    protocol: TLS
+    keyStoreType: PKCS12
+    key-store: wooyeah.p12
+    key-store-password: 10110111
+    keyAlias: 1
+spring: 
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+      static-path-pattern: /**
+  datasource: 
+#    type: com.mchange.v2.c3p0.ComboPooledDataSource
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&autoReconnect=true
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update  
+      dialect: org.hibernate.dialect.MySQL5Dialect 
+  freemarker:
+    cache: true
+    suffix: .html
+    charset: UTF-8
+    content-type: text/html
+    checkTemplateLocation: true
+    allowRequestOverride: false
+    exposeRequestAttributes: true
+    exposeSpringMacroHelpers: true
+    requestContextAttribute: requestContext
+#c3p0: 
+#  jdbcUrl: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+#  user: root
+#  password: root
+#  driverClass: com.mysql.jdbc.Driver

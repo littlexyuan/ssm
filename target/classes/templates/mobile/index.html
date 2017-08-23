@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/ico" href="/vendor/images/music_heart.ico" sizes="32x32">
+<link rel="stylesheet" href="/vendor/css/letter.css" type="text/css">
+<link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/swiper/css/swiper.min.css">
+<link rel="stylesheet" href="/assets/swiper/css/animate.min.css">
+<script type="text/javascript" src="/assets/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/swiper/js/swiper.min.js"></script>
+<script type="text/javascript" src="/assets/swiper/js/swiper.animate1.0.2.min.js"></script>
+<title>Love letter</title>
+</head>
+<body>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide" id="swiper-slide">
+				<div class="top">
+					<a href="/mobile/all"><i class="fa fa-align-justify"></i></a>
+				</div>
+				<div class="letter">${letter.content}</div>
+				<div class="foot">
+					<i class="fa fa-circle"></i> 
+					<i class="fa fa-tree"></i> 
+					<i class="fa fa-heart"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	(function() {
+		var user = navigator.userAgent;
+		var Agents = [ "Android", "Linux", "iPhone" ];
+		var flag = false;
+		for (var i = 0; i < Agents.length; i++) {
+			if (user.indexOf(Agents[i]) > 0) {
+				flag = true;
+			}
+		}
+		if (!flag) {
+			window.location = "/pc";
+		}
+
+	     var swiper = new Swiper('.swiper-container', {
+		 onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+		 swiperAnimateCache(swiper); //隐藏动画元素 
+		 swiperAnimate(swiper); //初始化完成开始动画
+		 }, 
+		 onSlideChangeEnd: function(swiper){ 
+		 swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+		 }
+		 }); 
+
+		var n = Math.floor(Math.random() * 3 + 1);
+		document.getElementById("swiper-slide").style.background = "url('/vendor/images/background/bg_"
+				+ n + ".jpg') no-repeat";
+		
+		//晃动效果
+		var SHAKE_THRESHOLD = 800;
+		var last_update = 0;
+		var x, y, z, last_x, last_y, last_z;
+		function deviceMotionHandler(eventData) {
+		  var acceleration =eventData.accelerationIncludingGravity;
+		  var curTime = new Date().getTime();
+		  if ((curTime - last_update)> 300) {
+			  var diffTime = curTime -last_update;
+			  last_update = curTime;
+			  x = acceleration.x;
+			  y = acceleration.y;
+			  z = acceleration.z;
+			  var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+			  if (speed > SHAKE_THRESHOLD) {
+				  window.location = "/mobile";
+			  }
+			  last_x = x;
+			  last_y = y;
+			  last_z = z;
+			}
+		}
+		if (window.DeviceMotionEvent) {
+		  window.addEventListener('devicemotion', deviceMotionHandler, false);
+		} else {
+		  console.log("你的设备不支持。");
+		}
+		
+	})();
+</script>
+</html>

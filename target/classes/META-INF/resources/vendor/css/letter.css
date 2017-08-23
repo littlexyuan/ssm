@@ -1,0 +1,62 @@
+html, body {
+    position: relative;
+    height: 100%;
+}
+body {
+	background: #eee;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #625959;;
+	margin: 0;
+	padding: 0;
+}
+.swiper-slide{
+	background: url('/vendor/images/background/bg_3.jpg') no-repeat;
+	background-size: 100%!important;
+ 	font-family:"ºÚÌå";
+ 	font-size: 1.4em;
+ 	height: 100%;
+ 	position: relative;
+ 	
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.letter{
+   height: auto;
+   text-align: center;
+}
+.top{
+	position: absolute;
+    top: 5px;
+    right: 15px;
+}
+.left{
+	position: absolute;
+    top: 5px;
+    left: 15px;
+}
+.foot{
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+} 
+a{
+	color: #625959;
+}
