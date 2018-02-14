@@ -30,9 +30,11 @@ public class CommonController {
 	
 	@RequestMapping(value = "/mobile",method = RequestMethod.GET)
 	public ModelAndView mobileIndex(){
-		int i=(int)(Math.random()*82+1);
-		Letter letter=letterRepository.findOne(i);
-		return new ModelAndView("mobile/index","letter",letter);
+		long n=letterRepository.count();
+		int i=(int)(Math.random()*n);
+		List<Letter> letters=letterRepository.findAll();
+		System.out.println(i);
+		return new ModelAndView("mobile/index","letter",letters.get(i));
 	}
 	
 	@RequestMapping(value = "/mobile/all",method = RequestMethod.GET)

@@ -23,6 +23,9 @@ public class Letter {
     @Column
     private String content;
 
+    @Column
+    private Boolean isDelete;
+    
 	public Integer getId() {
 		return id;
 	}
@@ -46,5 +49,15 @@ public class Letter {
 	public void setTime(Date time) {
 		this.time = time;
 	}
+
+	public Boolean getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(Boolean isDelete) {
+		this.isDelete = isDelete;
+	}
+	
+	
 
 }
