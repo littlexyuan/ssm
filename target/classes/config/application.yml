@@ -35,6 +35,8 @@ spring:
     exposeRequestAttributes: true
     exposeSpringMacroHelpers: true
     requestContextAttribute: requestContext
+    settings:
+      tag_syntax: square_bracket
 #c3p0: 
 #  jdbcUrl: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
 #  user: root

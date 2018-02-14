@@ -23,23 +23,24 @@
 <body>
 <div class="swiper-container">
 	<div class="swiper-wrapper">
-	<#list letters as item>
+	[#list letters as item]
 	<div class="swiper-slide">
 		<div class="left">
 		    <a href="/mobile"><i class="fa fa-refresh fa-spin"></i></a>
 		</div>
 		<div class="top">
+			<input type="hidden" value="${item.id}" name="id"/>
 			${item_index+1}
 		</div>
 		<div class="letter">
-			${item.content}
+			<div class="topbg">${item.content}</div>
 		</div>
 		<div class="foot">
 			<i class="fa fa-circle"></i> <i class="fa fa-tree"></i> <i
 				class="fa fa-heart"></i>
 		</div>
 	</div>
-	</#list>
+	[/#list]
 	</div>
 </div>
 </body>
@@ -70,6 +71,35 @@
 	    	  swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
 	    	}
 	    });
+	    
+		//晃动效果
+		var SHAKE_THRESHOLD = 800;
+		var last_update = 0;
+		var x, y, z, last_x, last_y, last_z;
+		function deviceMotionHandler(eventData) {
+		  var acceleration =eventData.accelerationIncludingGravity;
+		  var curTime = new Date().getTime();
+		  if ((curTime - last_update)> 300) {
+			  var diffTime = curTime -last_update;
+			  last_update = curTime;
+			  x = acceleration.x;
+			  y = acceleration.y;
+			  z = acceleration.z;
+			  var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+			  if (speed > SHAKE_THRESHOLD) {
+				  var id=$(".swiper-slide-active").find("input[name=id]").val();
+				  window.location = "/mobile/add?id="+id;
+			  }
+			  last_x = x;
+			  last_y = y;
+			  last_z = z;
+			}
+		}
+		if (window.DeviceMotionEvent) {
+			window.addEventListener('devicemotion', deviceMotionHandler, false);
+		} else {
+		 	alert("你的设备不支持。");
+		}
 	})();
 </script>
 </html>

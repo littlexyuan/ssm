@@ -26,7 +26,8 @@
 				<div class="top">
 					<a href="/mobile/all"><i class="fa fa-align-justify"></i></a>
 				</div>
-				<div class="letter">${letter.content}
+				<div class="letter">
+					<div class="topbg">${letter.content}</div>
 				</div>
 				<span class="goUp" style="z-index: 0; transform: matrix(1, 0, 0, 1, 0, 0);"></span>
 				<div class="foot">
@@ -62,7 +63,7 @@
 		 	}
 		}); 
 
-		var n = Math.floor(Math.random() * 3 + 1);
+		var n = Math.floor(Math.random() * 13 + 1);
 		document.getElementById("swiper-slide").style.background = "url('/vendor/images/background/bg_"
 				+ n + ".jpg') no-repeat";
 		//晃动效果
@@ -80,10 +81,9 @@
 			  z = acceleration.z;
 			  var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
 			  if (speed > SHAKE_THRESHOLD) {
-				  //alert(x+" \n "+y+" \n "+z);
-				  //window.location = "/mobile";
-				  $(".letter").html('');
-				  $(".goUp").show();
+				  window.location = "/mobile/add";
+				  //$(".letter").html('');
+				  //$(".goUp").show();
 			  }
 			  last_x = x;
 			  last_y = y;

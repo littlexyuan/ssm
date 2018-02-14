@@ -76,6 +76,16 @@ a{
 	background-position: 0px -30px; 
 	-webkit-animation: none;
 }
+/* Í¸Ã÷»­²¼*/
+.topbg{
+	background: rgba(255,255,255,0.7);
+    width: 350px;
+    height: 490px;
+    position: relative;
+    top: 80px;
+    vertical-align: middle;
+    display: table-cell;
+}
 
 @-webkit-keyframes myrotate /*Safari and Chrome*/
 {
@@ -103,3 +113,4 @@ a{
 		0%{transform: translateY(28px)}
 		100%{transform: translateY(0px)}
 	}
+	
