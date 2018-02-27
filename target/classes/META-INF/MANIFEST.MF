@@ -4,6 +4,7 @@ Implementation-Version: 1.0-SNAPSHOT
 Built-By: ysx
 Implementation-Vendor-Id: com.ysx
 Build-Jdk: 1.8.0_66
+Implementation-URL: http://projects.spring.io/spring-boot/ssm/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
 

@@ -7,15 +7,25 @@ server:
     key-store: wooyeah.p12
     key-store-password: 10110111
     keyAlias: 1
+#fileUpload: d://images/upload//home/ssm/images/upload/
+fileUpload: /home/ssm/upload/
 spring: 
   mvc:
     view:
       prefix: /
       suffix: .html
       static-path-pattern: /**
+  resources:
+    #static-locations: file:d://images/upload/,classpath:static/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+    static-locations: file:/home/ssm/upload/,classpath:static/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  http: 
+    multipart:
+      maxFileSize: 10Mb 
+      maxRequestSize: 10Mb
   datasource: 
 #    type: com.mchange.v2.c3p0.ComboPooledDataSource
     url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&autoReconnect=true
+#    url: jdbc:mysql://39.108.8.218:3306/test?serverTimezone=UTC&autoReconnect=true
     username: root
     password: root
     driverClassName: com.mysql.jdbc.Driver

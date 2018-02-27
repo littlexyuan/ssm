@@ -68,7 +68,7 @@ a{
 	width: 30px; 
 	height: 30px; 
 	background-size: 100%; 
-	background-image: url("http://s3img.city.sina.com.cn/activity/common/large/9f9acca088ab3e67f12eb612bdd12c07.png"); 
+	background-image: url("/vendor/images/note.png"); 
 	z-index: 1; 
 	-webkit-animation: myrotate 5s linear 0s infinite normal;
 }
@@ -82,7 +82,7 @@ a{
     width: 350px;
     height: 490px;
     position: relative;
-    top: 80px;
+    top: 40px;
     vertical-align: middle;
     display: table-cell;
 }

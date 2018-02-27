@@ -18,7 +18,7 @@
 <title>Love letter</title>
 </head>
 <body>
-<audio id="bgm" src="assets/music/風の住む街.mp3" loop="loop" style="display: none; width: 0; height: 0;"></audio>
+<audio id="bgm" src="/assets/music/風の住む街.mp3" loop="loop" style="display: none; width: 0; height: 0;"></audio>
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide" id="swiper-slide">
@@ -62,10 +62,7 @@
 		 		swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
 		 	}
 		}); 
-
-		var n = Math.floor(Math.random() * 13 + 1);
-		document.getElementById("swiper-slide").style.background = "url('/vendor/images/background/bg_"
-				+ n + ".jpg') no-repeat";
+		
 		//晃动效果
 		var SHAKE_THRESHOLD = 800;
 		var last_update = 0;
@@ -96,13 +93,28 @@
 		 	alert("你的设备不支持。");
 		}
 		
-		//背景音乐
 		
-		var musics=["爱的纪念","安妮的仙境","風の住む街","寂静之声","Kiss The Rain"];
-		var ran=parseInt(5*Math.random());
+		//初始化
+		var n="";
+		var mus="";
 		
+		var music="${letter.music!}";
+		var pic="${letter.pic!}";
+		if(music!=""){
+			mus=music;
+		}else{
+			var musics=["爱的纪念","安妮的仙境","風の住む街","寂静之声","Kiss The Rain"];
+			var ran=parseInt(5*Math.random());
+			mus=musics[ran];
+		}
+		if(pic!=""){
+			n="/"+pic;
+		}else{
+			n = "/vendor/images/background/bg_"+Math.floor(Math.random() * 13 + 1)+".jpg";
+		}
+		document.getElementById("swiper-slide").style.background = "url('" + n + "') no-repeat";
+		$("#bgm").attr("src","/assets/music/"+mus+".mp3");
 		var dom = document.getElementById('bgm');
-		$("#bgm").attr("src","assets/music/"+musics[ran]+".mp3");
 		$(".bgm-btn").bind("touchstart",function(e){
 			if( dom.paused ){
 				dom.play();

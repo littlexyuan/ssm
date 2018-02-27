@@ -17,17 +17,21 @@
 <script type="text/javascript" src="/assets/swiper/js/swiper.animate1.0.2.min.js"></script>
 <title>Love letter</title>
 <style type="text/css">
-	
+	.bgm-btn{
+		z-index: 2;
+	}
 </style>
 </head>
 <body>
+<audio id="bgm" src="/assets/music/風の住む街.mp3" loop="loop" style="display: none; width: 0; height: 0;"></audio>
+<div class="bgm-btn mut"></div>
 <div class="swiper-container">
 	<div class="swiper-wrapper">
 	[#list letters as item]
 	<div class="swiper-slide">
-		<div class="left">
+<!-- 		<div class="left">
 		    <a href="/mobile"><i class="fa fa-refresh fa-spin"></i></a>
-		</div>
+		</div> -->
 		<div class="top">
 			<input type="hidden" value="${item.id}" name="id"/>
 			${item_index+1}
@@ -88,7 +92,7 @@
 			  var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
 			  if (speed > SHAKE_THRESHOLD) {
 				  var id=$(".swiper-slide-active").find("input[name=id]").val();
-				  window.location = "/mobile/add?id="+id;
+				  //window.location = "/mobile/add?id="+id;
 			  }
 			  last_x = x;
 			  last_y = y;
@@ -100,6 +104,22 @@
 		} else {
 		 	alert("你的设备不支持。");
 		}
+		
+		//背景音乐
+		
+		var musics=["爱的纪念","安妮的仙境","風の住む街","寂静之声","Kiss The Rain"];
+		var ran=parseInt(5*Math.random());
+		var dom = document.getElementById('bgm');
+		$("#bgm").attr("src","/assets/music/"+musics[ran]+".mp3");
+		$(".bgm-btn").bind("touchstart",function(e){
+			if( dom.paused ){
+				dom.play();
+				$(".bgm-btn").removeClass("mut");
+			}else{
+				dom.pause();
+				$(".bgm-btn").addClass("mut");
+			}
+		});
 	})();
 </script>
 </html>

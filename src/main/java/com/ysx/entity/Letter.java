@@ -26,6 +26,12 @@ public class Letter {
     @Column
     private Boolean isDelete;
     
+    @Column
+    private String music;
+    
+    @Column
+    private String pic;
+    
 	public Integer getId() {
 		return id;
 	}
@@ -56,6 +62,22 @@ public class Letter {
 
 	public void setIsDelete(Boolean isDelete) {
 		this.isDelete = isDelete;
+	}
+
+	public String getMusic() {
+		return music;
+	}
+
+	public void setMusic(String music) {
+		this.music = music;
+	}
+
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 	
 	

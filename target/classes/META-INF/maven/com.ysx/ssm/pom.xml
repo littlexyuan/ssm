@@ -9,7 +9,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.2.5.RELEASE</version>
+		<version>1.5.10.RELEASE</version>
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -71,7 +71,6 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.3.11.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -87,6 +86,18 @@
 		    <artifactId>c3p0</artifactId>
 		    <version>0.9.5.2</version>
 		</dependency>
+		<!-- 热部署（改代码不用重启） -->
+		<dependency>
+	      <groupId>org.springframework.boot</groupId>
+	      <artifactId>spring-boot-devtools</artifactId>
+	      <scope>provided</scope>
+	      <optional>true</optional>
+	    </dependency>
+	    <dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -94,6 +105,21 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+	          <groupId>org.springframework.boot</groupId>
+	          <artifactId>spring-boot-maven-plugin</artifactId>
+	          <dependencies>
+	            <!-- spring热部署 -->
+	            <dependency>
+	              <groupId>org.springframework</groupId>
+	              <artifactId>springloaded</artifactId>
+	              <version>1.2.6.RELEASE</version>
+	            </dependency>
+	          </dependencies>
+	          <configuration>
+	            <mainClass>cn.springboot.Mainspringboot</mainClass>
+	          </configuration>
+	        </plugin>
 		</plugins>
 	</build>
 	<repositories>
