@@ -14,7 +14,7 @@ node_modules
 .gradle
 .metadata
 .recommenders
-.p12
+*.p12
 
 target
 build
