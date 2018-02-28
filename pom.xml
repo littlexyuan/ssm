@@ -87,12 +87,13 @@
 		    <version>0.9.5.2</version>
 		</dependency>
 		<!-- 热部署（改代码不用重启） -->
-		<dependency>
+<!-- 		<dependency>
 	      <groupId>org.springframework.boot</groupId>
 	      <artifactId>spring-boot-devtools</artifactId>
 	      <scope>provided</scope>
 	      <optional>true</optional>
-	    </dependency>
+	    </dependency> -->
+	    
 	    <dependency>
 		    <groupId>commons-io</groupId>
 		    <artifactId>commons-io</artifactId>
@@ -105,11 +106,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 	          <groupId>org.springframework.boot</groupId>
 	          <artifactId>spring-boot-maven-plugin</artifactId>
 	          <dependencies>
-	            <!-- spring热部署 -->
+	            spring热部署
 	            <dependency>
 	              <groupId>org.springframework</groupId>
 	              <artifactId>springloaded</artifactId>
@@ -119,7 +120,7 @@
 	          <configuration>
 	            <mainClass>cn.springboot.Mainspringboot</mainClass>
 	          </configuration>
-	        </plugin>
+	        </plugin> -->
 		</plugins>
 	</build>
 	<repositories>

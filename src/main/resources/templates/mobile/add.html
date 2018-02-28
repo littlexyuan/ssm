@@ -115,11 +115,11 @@
         }
     	$("#sub").on("click",function(){
     		var param={};
-    		if($("textarea[name=content]").val()==""){
+/*     		if($("textarea[name=content]").val()==""){
     			alert("写点什么吧！！！")
-    			$("textarea[name=content]").focus();
-    			return;
-    		}
+    			return false;
+    		} */
+    		$(this).attr({"disabled":"disabled"});
             var formData = new FormData($( "#uploadForm" )[0]);  
             $.ajax({
                 url: "/mobile/insert",

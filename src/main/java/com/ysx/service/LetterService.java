@@ -73,6 +73,7 @@ public class LetterService {
 			String ext = FilenameUtils.getExtension(pic.getOriginalFilename());
 			String filePath = upload.getAbsolutePath() + "\\" + filename + "." + ext;
 			// 转存文件
+			filePath = filePath.replaceAll("\\\\+", "/");// 把反斜杠\替换成正斜杠/
 			pic.transferTo(new File(filePath));
 			letter.setPic(filename + "." + ext);
 		}
