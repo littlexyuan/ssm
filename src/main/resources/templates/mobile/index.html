@@ -30,6 +30,9 @@
 					<div class="topbg">${letter.content}</div>
 				</div>
 				<span class="goUp" style="z-index: 0; transform: matrix(1, 0, 0, 1, 0, 0);"></span>
+				<div class="left-foot" id="refresh">
+					to: 小瑞嗯哼
+				</div>
 				<div class="foot">
 					<i class="fa fa-circle"></i> 
 					<i class="fa fa-tree"></i> 
@@ -124,6 +127,10 @@
 				$(".bgm-btn").addClass("mut");
 			}
 		});
+
+		$("#refresh").on("click",function () {
+			window.location.reload();
+		})
 	})();
 </script>
 </html>

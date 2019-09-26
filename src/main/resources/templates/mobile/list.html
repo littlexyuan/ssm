@@ -39,6 +39,9 @@
 		<div class="letter">
 			<div class="topbg">${item.content}</div>
 		</div>
+		<div class="left-foot" id="add">
+			to: 小瑞嗯哼
+		</div>
 		<div class="foot">
 			<i class="fa fa-circle"></i> <i class="fa fa-tree"></i> <i
 				class="fa fa-heart"></i>
@@ -120,6 +123,9 @@
 				$(".bgm-btn").addClass("mut");
 			}
 		});
+		$("#add").on("click",function () {
+			window.location.reload();window.location = "/mobile/add";
+		})
 	})();
 </script>
 </html>

@@ -13,7 +13,7 @@ body {
 .swiper-slide{
 	background: url('/vendor/images/background/bg_3.jpg') no-repeat;
 	background-size: 100%!important;
- 	font-family:"ºÚÌå";
+ 	font-family:"ï¿½ï¿½ï¿½ï¿½";
  	font-size: 1.4em;
  	height: 100%;
  	position: relative;
@@ -55,8 +55,13 @@ body {
 .foot{
     position: absolute;
     bottom: 5px;
-    right: 15px;
-} 
+	left: 15px;
+}
+.left-foot{
+	position: absolute;
+	right: 15px;
+	bottom: 5px;
+}
 a{
 	color: #625959;
 }
@@ -76,7 +81,7 @@ a{
 	background-position: 0px -30px; 
 	-webkit-animation: none;
 }
-/* Í¸Ã÷»­²¼*/
+/* Í¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .topbg{
 	background: rgba(255,255,255,0.7);
     width: 350px;
@@ -96,7 +101,7 @@ a{
 100% { -webkit-transform:rotate(-360deg);}
 }
 
-/*µÚÒ»²¿·Ö*/
+/*ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½*/
 	.goUp {
 	    position: absolute;
 	    display: none;
